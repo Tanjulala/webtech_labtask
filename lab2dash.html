@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin-left: 28%;
+            margin-right: 25%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10%;
+        }
+
+       
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid black;
+            padding-bottom: 5px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu a {
+            color: purple;
+            margin-left: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        
+        .left {
+            width: 35%;
+        }
+
+       
+        .right {
+            width: 75%;
+        }
+
+       
+        .footer {
+            border-top: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        
+        <div class="header">
+            <div class="logo">
+                <span style="color: green; font-size: 32px;">X</span>Company
+            </div>
+            <div class="menu">
+                Logged in as <a href="#">Bob</a> | <a href="#">Logout</a>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td class="left">
+                    <b>Account</b>
+                    <hr>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">View Profile</a></li>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Change Profile Picture</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </td>
+
+                
+                <td class="right">
+                    <b>Welcome Bob</b>
+                </td>
+            </tr>
+        </table>
+
+     
+        <div class="footer">
+            Copyright © 2017
+        </div>
+
+    </div>
+</body>
+</html>
