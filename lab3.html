@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Display</title>
+
+    <style>
+
+          body {
+        background-color:#f9f9f9;
+        font-family:Arial, sans-serif;
+    }
+
+        .product-box {
+            display:inline-block;
+            width:400px;
+            height: 400px;
+            border:1px solid #ccc;
+            background-color: #FAF3E0;
+            padding:15px;
+            margin:10px;
+            text-align:center;
+            transition:0.3s;
+            vertical-align:top;
+        }
+
+     
+        .product-box:hover {
+            outline:2px solid #000;
+            outline-offset:5px;
+        }
+
+        
+        .product-img {
+            width:280px;
+            height:220px;
+            object-fit:cover;
+        }
+    </style>
+
+</head>
+<body>
+
+    
+    <div class="product-box">
+        <img src="laptop.jpg" class="product-img" alt="Laptop">
+        <h3>Laptop</h3>
+        <p>High-performance laptop for work and study.</p>
+        <h4>$1,00,000</h4>
+        <a href="#">Buy Now</a>
+    </div>
+
+    
+    <div class="product-box">
+        <img src="headphone.jpg" class="product-img" alt="Headphones">
+        <h3>Headphones</h3>
+        <p>Noise-cancelling wireless headphones.</p>
+        <h4>$599</h4>
+        <a href="#">Buy Now</a>
+    </div>
+
+  
+    <div class="product-box">
+        <img src="watch.jpg" class="product-img" alt="Smartwatch">
+        <h3>Smartwatch</h3>
+        <p>Track your health & stay connected.</p>
+        <h4>$199</h4>
+        <a href="#">Buy Now</a>
+    </div>
+
+</body>
+</html>
