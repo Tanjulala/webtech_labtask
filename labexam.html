@@ -1,0 +1,194 @@
+<html>
+<head>
+
+    <title>Global Tech Connect</title>
+    <style>
+
+        .right-alignment {
+            text-align: right;
+            font-weight: bold;}
+
+        .attand {
+            font-weight: bold;
+        text-decoration: underline;}
+
+
+           
+        
+    </style>
+    
+    <script>
+
+         let count = 0;
+         let virtualCount = 0;
+         let inpersonCount = 0;
+          function handleSubmit() {
+             event.preventDefault();
+    const NameValue = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const company = document.getElementById("cname").value;
+    const virtual = document.getElementById("virtual");
+    const inperson = document.getElementById("inperson");
+    let valid = true;
+    
+    if (NameValue == "" || !NameValue) {
+          const namerr = document.getElementById("nameErr");
+          namerr.innerHTML = "Name cannot be empty";
+        } else {
+          const namerr = document.getElementById("nameErr");
+          namerr.innerHTML = "";
+          console.log("Name entered: " + NameValue);
+          console.log("Length of Name: " + NameValue.length);
+          
+
+          if (NameValue.length < 6 || NameValue.length > 100 ) {
+            const namerr = document.getElementById("nameErr");
+           namerr.innerHTML = "Name must be between 6 and 10 characters long";
+            valid = false;
+          }
+          
+        }
+    
+   if (email == "" || !email) {
+          const emailErr = document.getElementById("emailErr");
+          emailErr.innerHTML = "Email cannot be empty";
+          valid = false;
+        } else {
+          const emailErr = document.getElementById("emailErr");
+          emailErr.innerHTML = "";
+         
+
+          console.log("Email entered: " + email);
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailPattern.test(email)) {
+            const emailErr = document.getElementById("emailErr");
+            emailErr.innerHTML = "Please enter a valid professional email address.";
+            valid = false;
+          }
+        }
+
+
+    if (company && company != "") { 
+    const comerr = document.getElementById("companyErr");
+    comerr.innerHTML = "";
+    console.log("Company entered: " + company);
+    console.log("Length of Company: " + company.length);
+
+    if (company.length >100) { 
+        const comerr = document.getElementById("companyErr");
+        comerr.innerHTML = "Cannot exceed 100 characters";
+        valid = false;
+    }
+        } 
+
+
+    let attValue = "";
+            if (virtual.checked) {
+                attValue = virtual.value;
+            } else if (inperson.checked) {
+                attValue = inperson.value;
+            }
+
+            if (!attValue || attValue == "") {
+            const ErrorElement = document.getElementById("attErr");
+            ErrorElement.innerHTML = "Please select your attendance type.";
+            } else {
+                const ErrorElement = document.getElementById("attErr");
+                  ErrorElement.innerHTML = "";            }
+        
+
+           if (valid) {
+                count++;
+                if (attValue === "virtual") 
+                {virtualCount++;}
+                else{ inpersonCount++;}
+           
+            document.getElementById("name").value = "";
+           document.getElementById("email").value = "";
+           document.getElementById("cname").value = "";
+           document.getElementById("virtual").checked = false;
+           document.getElementById("inperson").checked = false;
+
+            }
+        }
+    
+
+     function toggleStats(button) {
+            const statsPanel = document.getElementById("statsPanel");
+            if (statsPanel.style.display === "none") {
+                statsPanel.style.display = "block";
+                button.value = "Hide Event Analytics";
+                updateStats();
+            } else {
+                statsPanel.style.display = "none";
+                button.value = "Show Event Analytics";
+            }
+        }
+
+        function updateStats() {
+            document.getElementById("totalReg").innerHTML = "Total Registrants: " + count;
+            document.getElementById("virtualCount").innerHTML = "Virtual: " + virtualCount;
+            document.getElementById("inpersonCount").innerHTML = "In-Person: " + inpersonCount;
+        }
+    
+
+     
+     
+
+     
+
+    </script>
+</head>
+<body>
+    <h1 style="color: rgb(99, 15, 15);">Event Registration form</h1>
+
+    <form>
+
+    <label class="right-alignment">Full Name : <span style="color:red">*</span></label>
+    <input  type="text" placeholder="Enter your full name" id="name"  />
+    <p id="nameErr" style="color:red"></p>
+
+
+    <label class="right-alignment" >Email : <span style="color:red">*</span></label>
+    <input type="text" style="width: 200px;" placeholder="Enter your Professional email" id="email" />
+    <p id="emailErr" style="color:red"></p>
+
+
+    <label class="right-alignment">Company/Institution : </label>
+    <br>
+    <input  type="text"style="width: 300px; height: 50px ;" placeholder="Enter your Companyor Instituion name" id="cname"  />
+    <p id="companyErr" style="color:red"></p>
+
+
+    <label class="right-alignment">Attandance : <span style="color: red;">*</span></label>
+    <br>
+    <input  type="radio"  id="virtual" value="virtual"name=rad  />Virtual 
+    <br>   
+     <input  type="radio"  id="inperson" value="inperson" name = rad  />In-person
+    <p id="attErr" style="color:red"></p>
+
+    <button type="button" onclick="handleSubmit()">Submit</button>
+   <br>
+   <br>
+   <input type="button" onclick="toggleStats(this)" value= "Show Event Analytics">
+    
+   <div id="statsPanel" style="display:none;">
+            <p id="totalReg" style="font-weight: bold;"></p>
+            <p class="attand">Attendance Breakdown </p>
+            <p id="virtualCount"></p>
+            <p id="inpersonCount"></p>
+        </div>
+
+
+
+    </form>
+
+
+
+
+</body>
+
+
+
+
+</html>
